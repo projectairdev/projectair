@@ -1,0 +1,8 @@
+{
+  "name": "Project AIR — Rigorous AI Engineering Studio",
+  "description": "The AI-build option that actually tests, audits, and ships properly. Institutional engineering studio for deterministic software, comprehensive test suites, and zero-downtime deployments.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

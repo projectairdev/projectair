@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en" class="dark scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project AIR — Rigorous AI Engineering Studio</title>
+    <meta name="description" content="The AI-build option that actually tests, audits, and ships properly. Institutional engineering studio delivering deterministic architecture, automated security audits, and zero-downtime deployments." />
+    <meta property="og:title" content="Project AIR — Rigorous AI Engineering Studio" />
+    <meta property="og:description" content="The AI-build option that actually tests, audits, and ships properly. Counterweight to fragile vibe-coded prototypes." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- ThemeScript to prevent Flash of Wrong Theme (FOUC) -->
+    <script>
+      (function() {
+        try {
+          var validThemes = ['dark', 'light', 'warm', 'slate'];
+          var stored = localStorage.getItem('air-studio-theme') || localStorage.getItem('projectair-theme');
+          var theme = stored;
+          if (!theme || validThemes.indexOf(theme) === -1) {
+            var prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+            theme = prefersLight ? 'light' : 'dark';
+          }
+          document.documentElement.setAttribute('data-theme', theme);
+          if (theme === 'light') {
+            document.documentElement.classList.add('light');
+            document.documentElement.classList.remove('dark');
+          } else {
+            document.documentElement.classList.add('dark');
+            document.documentElement.classList.remove('light');
+          }
+        } catch (e) {}
+      })();
+    </script>
+
+    <!-- Fonts: Outfit (Geometric Rounded Display), Plus Jakarta Sans (Body/UI), Barlow Condensed (Technical Grotesk Labels), JetBrains Mono (Code) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;1,500&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  </head>
+  <body class="antialiased">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

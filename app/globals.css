@@ -1,0 +1,977 @@
+@import "tailwindcss";
+
+:root, [data-theme='dark'] {
+  --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-condensed: 'Barlow Condensed', 'Arial Narrow', -apple-system, sans-serif;
+  --font-code: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Legacy variable aliases for seamless compatibility */
+  --font-space-grotesk: var(--font-display);
+  --font-inter: var(--font-sans);
+  --font-jetbrains-mono: var(--font-condensed);
+  
+  --bg-base: #0B0E14;
+  --bg-gradient: radial-gradient(ellipse 90% 60% at 50% -15%, rgba(22, 32, 50, 0.7), transparent 85%),
+                 linear-gradient(180deg, #101622 0%, #0B0E14 100%);
+  --bg-surface: rgba(16, 22, 34, 0.82);
+  --bg-surface-elevated: #151D2C;
+  --bg-overlay: rgba(11, 14, 20, 0.94);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-medium: rgba(255, 255, 255, 0.16);
+  --text-heading: #FFFFFF;
+  --text-primary: #F1F5F9;
+  --text-secondary: #94A3B8;
+  --text-muted: #64748B;
+  --accent-cyan: #3FD6D6;
+  --accent-teal: #007C87;
+  --accent-active-bg: #3FD6D6;
+  --accent-active-text: #0B0E14;
+  --grain-opacity: 0.026;
+  color-scheme: dark;
+}
+
+[data-theme='light'] {
+  --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-condensed: 'Barlow Condensed', 'Arial Narrow', -apple-system, sans-serif;
+  --font-code: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-space-grotesk: var(--font-display);
+  --font-inter: var(--font-sans);
+  --font-jetbrains-mono: var(--font-condensed);
+
+  --bg-base: #F8FAFC;
+  --bg-gradient: radial-gradient(ellipse 85% 55% at 50% -15%, rgba(226, 232, 240, 0.9), transparent 85%),
+                 linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
+  --bg-surface: rgba(255, 255, 255, 0.96);
+  --bg-surface-elevated: #FFFFFF;
+  --bg-overlay: rgba(255, 255, 255, 0.97);
+  --border-subtle: rgba(15, 23, 42, 0.09);
+  --border-medium: rgba(15, 23, 42, 0.18);
+  --text-heading: #090E1A;
+  --text-primary: #1E293B;
+  --text-secondary: #334155;
+  --text-muted: #64748B;
+  --accent-cyan: #0D9488;
+  --accent-teal: #0F766E;
+  --accent-active-bg: #0D9488;
+  --accent-active-text: #FFFFFF;
+  --grain-opacity: 0.015;
+  color-scheme: light;
+}
+
+[data-theme='warm'] {
+  --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-condensed: 'Barlow Condensed', 'Arial Narrow', -apple-system, sans-serif;
+  --font-code: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-space-grotesk: var(--font-display);
+  --font-inter: var(--font-sans);
+  --font-jetbrains-mono: var(--font-condensed);
+
+  --bg-base: #141210;
+  --bg-gradient: radial-gradient(ellipse 85% 55% at 50% -15%, rgba(54, 42, 32, 0.8), transparent 85%),
+                 linear-gradient(180deg, #1C1814 0%, #141210 100%);
+  --bg-surface: rgba(28, 23, 19, 0.88);
+  --bg-surface-elevated: #28211C;
+  --bg-overlay: rgba(20, 18, 16, 0.94);
+  --border-subtle: rgba(245, 235, 224, 0.09);
+  --border-medium: rgba(245, 235, 224, 0.18);
+  --text-heading: #FAF5EE;
+  --text-primary: #EDE5DA;
+  --text-secondary: #B4A899;
+  --text-muted: #877B6C;
+  --accent-cyan: #2DD4BF;
+  --accent-teal: #0D9488;
+  --accent-active-bg: #2DD4BF;
+  --accent-active-text: #141210;
+  --grain-opacity: 0.032;
+  color-scheme: dark;
+}
+
+[data-theme='slate'] {
+  --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-condensed: 'Barlow Condensed', 'Arial Narrow', -apple-system, sans-serif;
+  --font-code: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-space-grotesk: var(--font-display);
+  --font-inter: var(--font-sans);
+  --font-jetbrains-mono: var(--font-condensed);
+
+  --bg-base: #0B1320;
+  --bg-gradient: radial-gradient(ellipse 85% 55% at 50% -15%, rgba(30, 48, 72, 0.8), transparent 85%),
+                 linear-gradient(180deg, #121F33 0%, #0B1320 100%);
+  --bg-surface: rgba(17, 28, 46, 0.88);
+  --bg-surface-elevated: #1B2B45;
+  --bg-overlay: rgba(11, 19, 32, 0.94);
+  --border-subtle: rgba(148, 163, 184, 0.12);
+  --border-medium: rgba(148, 163, 184, 0.22);
+  --text-heading: #F8FAFC;
+  --text-primary: #E2E8F0;
+  --text-secondary: #94A3B8;
+  --text-muted: #64748B;
+  --accent-cyan: #38BDF8;
+  --accent-teal: #0284C7;
+  --accent-active-bg: #38BDF8;
+  --accent-active-text: #0B1320;
+  --grain-opacity: 0.028;
+  color-scheme: dark;
+}
+
+@theme {
+  --font-display: var(--font-display);
+  --font-sans: var(--font-sans);
+  --font-body: var(--font-sans);
+  --font-condensed: var(--font-condensed);
+  --font-mono: var(--font-condensed);
+  --font-code: var(--font-code);
+
+  --color-obsidian-base: var(--bg-base);
+  --color-obsidian-surface: var(--bg-surface);
+  --color-obsidian-card: var(--bg-surface);
+  --color-obsidian-border: var(--border-subtle);
+
+  --color-signal-teal: #007C87;
+  --color-signal-teal-bright: #3FD6D6;
+  --color-accent-orange: #FF5A2B;
+  --color-accent-orange-bright: #FF7A4D;
+}
+
+html {
+  font-size: 92.5%;
+  font-optical-sizing: auto;
+  text-rendering: optimizeLegibility;
+}
+
+html, body {
+  background-color: var(--bg-base);
+  background-image: var(--bg-gradient);
+  background-attachment: fixed;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-feature-settings: "cv01" 1, "ss01" 1, "kern" 1;
+  letter-spacing: -0.008em;
+  line-height: 1.62;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Subtle Film Grain Noise Overlay (Zero image files, pure SVG filter data URI) */
+.film-grain {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+  opacity: var(--grain-opacity, 0.026);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* Smooth Theme Transitions */
+html, body, div, section, main, header, footer {
+  transition: background-color 0.22s ease, border-color 0.22s ease, color 0.22s ease;
+}
+
+/* Custom Institutional Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-base);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-medium);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-cyan);
+}
+
+/* ==========================================================================
+   MASTER TYPOGRAPHY ARCHITECTURE & TYPE SCALE
+   1. Display / Headings: Outfit (Geometric Rounded Sans)
+   2. Body / UI: Plus Jakarta Sans (High-Contrast Modern Sans)
+   3. Labels / Meta / Compact UI: Barlow Condensed (Strong Condensed Grotesk)
+   4. Source Code / Exhibits: JetBrains Mono (Fixed-Width Monospace)
+   ========================================================================== */
+@layer utilities {
+  .border-theme {
+    border-color: var(--border-subtle) !important;
+  }
+
+  .border-theme-medium {
+    border-color: var(--border-medium) !important;
+  }
+
+  .divide-theme > :not([hidden]) ~ :not([hidden]) {
+    border-color: var(--border-subtle) !important;
+  }
+
+  .text-heading {
+    color: var(--text-heading) !important;
+  }
+
+  .text-primary {
+    color: var(--text-primary) !important;
+  }
+
+  .text-secondary {
+    color: var(--text-secondary) !important;
+  }
+
+  .text-muted {
+    color: var(--text-muted) !important;
+  }
+
+  /* 1. Display / Hero Headings */
+  .title-hero,
+  h1.heading-display {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.036em;
+    line-height: 1.04;
+    color: var(--text-heading);
+    text-wrap: balance;
+  }
+  
+  /* 2. Section Headings */
+  .title-section,
+  h2.heading-display {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.028em;
+    line-height: 1.11;
+    color: var(--text-heading);
+    text-wrap: balance;
+  }
+
+  /* 3. Card Titles & Subheadings */
+  .title-card,
+  h3.heading-display,
+  h4.heading-display {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.22;
+    color: var(--text-heading);
+  }
+
+  .heading-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.028em;
+    line-height: 1.14;
+    font-weight: 700;
+    color: var(--text-heading);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    color: var(--text-heading);
+  }
+
+  /* 4. Condensed Grotesk Eyebrows, Labels, Tags & Metadata */
+  .eyebrow-badge,
+  .label-condensed {
+    font-family: var(--font-condensed);
+    font-size: 0.84rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    line-height: 1.2;
+    text-transform: uppercase;
+    color: var(--accent-cyan);
+  }
+
+  /* 5. Tabular Display Numerals & Key Stats */
+  .data-stat {
+    font-family: var(--font-display);
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    letter-spacing: -0.034em;
+    line-height: 1.02;
+  }
+
+  /* 6. Body Copy & Lead Paragraphs (Plus Jakarta Sans) */
+  .copy-body {
+    font-family: var(--font-sans);
+    line-height: 1.66;
+    letter-spacing: -0.009em;
+    color: var(--text-secondary);
+  }
+
+  .copy-lead {
+    font-family: var(--font-sans);
+    font-size: 1.125rem;
+    font-weight: 450;
+    line-height: 1.62;
+    letter-spacing: -0.012em;
+    color: var(--text-primary);
+  }
+
+  .font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.025em;
+  }
+
+  .font-sans,
+  .font-body {
+    font-family: var(--font-sans);
+    letter-spacing: -0.009em;
+  }
+
+  .font-condensed {
+    font-family: var(--font-condensed);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+  }
+
+  /* Map UI .font-mono labels/badges/meta to Condensed Grotesk, with optical size calibration */
+  .font-mono {
+    font-family: var(--font-condensed);
+    font-weight: 600;
+    letter-spacing: 0.055em;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Optical scale calibration so Condensed Grotesk labels feel crisp, legible, and authoritative */
+  .font-mono.text-\[9px\],
+  .font-condensed.text-\[9px\] {
+    font-size: 0.72rem;
+    line-height: 1.25;
+    letter-spacing: 0.08em;
+  }
+
+  .font-mono.text-\[10px\],
+  .font-condensed.text-\[10px\] {
+    font-size: 0.78rem;
+    line-height: 1.28;
+    letter-spacing: 0.075em;
+  }
+
+  .font-mono.text-\[11px\],
+  .font-condensed.text-\[11px\] {
+    font-size: 0.84rem;
+    line-height: 1.32;
+    letter-spacing: 0.07em;
+  }
+
+  .font-mono.text-xs,
+  .font-condensed.text-xs {
+    font-size: 0.9rem;
+    line-height: 1.38;
+    letter-spacing: 0.065em;
+  }
+
+  .font-mono.text-sm,
+  .font-condensed.text-sm {
+    font-size: 0.98rem;
+    line-height: 1.42;
+    letter-spacing: 0.05em;
+  }
+
+  .font-mono.uppercase,
+  .font-condensed.uppercase {
+    letter-spacing: 0.1em;
+  }
+
+  /* Large numeric displays using .font-mono adopt geometric Outfit numerals */
+  .font-mono.text-xl,
+  .font-mono.text-2xl,
+  .font-mono.text-3xl,
+  .font-mono.text-4xl,
+  .font-mono.text-5xl,
+  .font-mono.text-6xl {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.032em;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* 7. True Monospace exclusively for Code Exhibits, Preblocks & AST Snippets */
+  pre,
+  code,
+  .font-code,
+  .whitespace-pre,
+  pre .font-mono,
+  code .font-mono {
+    font-family: var(--font-code) !important;
+    font-weight: 400;
+    letter-spacing: -0.01em !important;
+    font-size: 0.78rem;
+    line-height: 1.62;
+  }
+
+  /* Tactile Surface with Specular Top Highlight */
+  .surface-card {
+    background-color: var(--bg-surface);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border-subtle);
+    box-shadow: 
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.06),
+      0 4px 20px -2px rgba(0, 0, 0, 0.35);
+    color: var(--text-primary);
+  }
+
+  .surface-card-hover {
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .surface-card-hover:hover {
+    border-color: var(--border-medium);
+    box-shadow: 
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.12),
+      0 14px 36px -4px rgba(0, 0, 0, 0.45),
+      0 0 18px -2px rgba(63, 214, 214, 0.12);
+    transform: translateY(-2px);
+  }
+
+  /* Theme-adaptive Form Input */
+  .input-theme {
+    background-color: var(--bg-base);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .input-theme:focus {
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 0 1px var(--accent-cyan);
+  }
+
+  .option-card-theme {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-primary);
+    transition: all 0.2s ease;
+  }
+
+  .rescue-track-card {
+    background-color: #14100D;
+    border-color: rgba(249, 115, 22, 0.2);
+  }
+}
+
+/* Technical Pattern Backgrounds */
+.bg-grid-pattern {
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+[data-theme='light'] .bg-grid-pattern {
+  background-image: linear-gradient(to right, rgba(15, 23, 42, 0.04) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
+}
+
+/* ==========================================================================
+   EXHAUSTIVE THEME ADAPTATION OVERRIDES
+   Guarantees that every page, card, form, border, and text adopts the theme
+   ========================================================================== */
+
+/* ===================== 1. LIGHT THEME (ALABASTER) ===================== */
+[data-theme='light'] {
+  --color-obsidian-card: #FFFFFF;
+  --color-obsidian-border: rgba(15, 23, 42, 0.09);
+}
+
+[data-theme='light'] .heading-display,
+[data-theme='light'] h1, 
+[data-theme='light'] h2, 
+[data-theme='light'] h3, 
+[data-theme='light'] h4,
+[data-theme='light'] h5,
+[data-theme='light'] h6 {
+  color: #0F172A !important;
+}
+
+[data-theme='light'] .surface-card {
+  background-color: rgba(255, 255, 255, 0.96) !important;
+  border-color: rgba(15, 23, 42, 0.09) !important;
+  box-shadow: 0 4px 24px -2px rgba(15, 23, 42, 0.05), inset 0 1px 0 0 rgba(255, 255, 255, 0.95) !important;
+  color: #1E293B !important;
+}
+
+/* All hardcoded dark backgrounds mapped to clean light surfaces */
+[data-theme='light'] .bg-\[\#0A0D12\],
+[data-theme='light'] .bg-\[\#0A0D12\]\/90,
+[data-theme='light'] .bg-\[\#0A0D12\]\/98,
+[data-theme='light'] .bg-\[\#0E131F\],
+[data-theme='light'] .bg-\[\#0A0D13\],
+[data-theme='light'] .bg-\[\#0E121A\],
+[data-theme='light'] .bg-\[\#0F131A\],
+[data-theme='light'] .bg-\[\#090B0E\],
+[data-theme='light'] .bg-\[\#10141D\],
+[data-theme='light'] .bg-\[\#0D1117\] {
+  background-color: rgba(248, 250, 252, 0.98) !important;
+  border-color: rgba(15, 23, 42, 0.09) !important;
+  color: #1E293B !important;
+}
+
+/* Translucent whites mapped to light slate container tints */
+[data-theme='light'] .bg-white\/\[0\.015\],
+[data-theme='light'] .bg-white\/\[0\.02\],
+[data-theme='light'] .bg-white\/\[0\.025\],
+[data-theme='light'] .bg-white\/\[0\.03\],
+[data-theme='light'] .bg-white\/\[0\.04\],
+[data-theme='light'] .bg-white\/\[0\.05\],
+[data-theme='light'] .bg-white\/\[0\.06\],
+[data-theme='light'] .bg-white\/\[0\.07\],
+[data-theme='light'] .bg-white\/\[0\.08\],
+[data-theme='light'] .bg-white\/5,
+[data-theme='light'] .bg-white\/10 {
+  background-color: rgba(15, 23, 42, 0.035) !important;
+}
+
+/* Translucent blacks mapped to soft light slate containers */
+[data-theme='light'] .bg-black\/20,
+[data-theme='light'] .bg-black\/30,
+[data-theme='light'] .bg-black\/40,
+[data-theme='light'] .bg-black\/50,
+[data-theme='light'] .bg-black\/60,
+[data-theme='light'] .bg-black\/70,
+[data-theme='light'] .bg-black\/80 {
+  background-color: rgba(241, 245, 249, 0.94) !important;
+  border-color: rgba(15, 23, 42, 0.09) !important;
+  color: #0F172A !important;
+}
+
+/* Modal and Dialog Backdrop & Surface in Light */
+[data-theme='light'] [role="dialog"] {
+  background-color: rgba(15, 23, 42, 0.5) !important;
+}
+
+[data-theme='light'] [role="dialog"] > div {
+  background-color: #FFFFFF !important;
+  border-color: rgba(15, 23, 42, 0.12) !important;
+  box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.22) !important;
+  color: #1E293B !important;
+}
+
+/* Translucent accent badges & cards in Light */
+[data-theme='light'] .bg-teal-950\/20,
+[data-theme='light'] .bg-teal-950\/30,
+[data-theme='light'] .bg-teal-950\/40,
+[data-theme='light'] .bg-teal-900\/20 {
+  background-color: rgba(204, 251, 241, 0.45) !important;
+  border-color: rgba(13, 148, 136, 0.25) !important;
+}
+
+[data-theme='light'] .text-teal-300 {
+  color: #0f766e !important;
+}
+
+[data-theme='light'] .text-teal-400 {
+  color: #0d9488 !important;
+}
+
+[data-theme='light'] .text-emerald-400 {
+  color: #059669 !important;
+}
+
+[data-theme='light'] .text-rose-400 {
+  color: #e11d48 !important;
+}
+
+[data-theme='light'] .text-amber-400 {
+  color: #b45309 !important;
+}
+
+[data-theme='light'] .border-teal-500\/50,
+[data-theme='light'] .border-teal-500\/30,
+[data-theme='light'] .border-teal-500\/25,
+[data-theme='light'] .border-teal-500\/20 {
+  border-color: rgba(13, 148, 136, 0.35) !important;
+}
+
+/* Form Inputs, Selects & Textareas in Light */
+[data-theme='light'] .input-theme,
+[data-theme='light'] input:not([type="checkbox"]):not([type="radio"]),
+[data-theme='light'] select,
+[data-theme='light'] textarea {
+  background-color: #FFFFFF !important;
+  border-color: rgba(15, 23, 42, 0.16) !important;
+  color: #0F172A !important;
+}
+
+[data-theme='light'] input::placeholder,
+[data-theme='light'] textarea::placeholder {
+  color: #94A3B8 !important;
+}
+
+[data-theme='light'] .option-card-theme {
+  background-color: rgba(248, 250, 252, 0.92) !important;
+  border-color: rgba(15, 23, 42, 0.09) !important;
+  color: #1E293B !important;
+}
+
+/* Border overrides in Light */
+[data-theme='light'] .border-white\/5,
+[data-theme='light'] .border-white\/10,
+[data-theme='light'] .border-white\/15,
+[data-theme='light'] .border-white\/20,
+[data-theme='light'] .border-theme {
+  border-color: rgba(15, 23, 42, 0.09) !important;
+}
+
+[data-theme='light'] .border-theme-medium {
+  border-color: rgba(15, 23, 42, 0.18) !important;
+}
+
+[data-theme='light'] .divide-white\/5 > :not([hidden]) ~ :not([hidden]),
+[data-theme='light'] .divide-white\/10 > :not([hidden]) ~ :not([hidden]) {
+  border-color: rgba(15, 23, 42, 0.09) !important;
+}
+
+/* Text typography hierarchy in Light: dark charcoal text */
+[data-theme='light'] .text-white:not(button[class*="bg-teal"]:not(.hover\:text-teal-300)):not(span[class*="bg-teal"]):not(.btn-solid):not(.badge-solid) {
+  color: #0F172A !important;
+}
+
+[data-theme='light'] .text-slate-100,
+[data-theme='light'] .text-slate-200,
+[data-theme='light'] .text-slate-300 {
+  color: #1E293B !important;
+}
+
+[data-theme='light'] .text-slate-400 {
+  color: #475569 !important;
+}
+
+[data-theme='light'] .text-slate-500 {
+  color: #64748B !important;
+}
+
+/* Track 02 Rescue card amber palette in Light */
+[data-theme='light'] .rescue-track-card {
+  background-color: rgba(255, 247, 237, 0.96) !important;
+  border-color: rgba(249, 115, 22, 0.28) !important;
+  box-shadow: 0 4px 20px -2px rgba(249, 115, 22, 0.08) !important;
+  color: #1E293B !important;
+}
+
+[data-theme='light'] .rescue-track-card .bg-orange-950\/20 {
+  background-color: rgba(254, 243, 199, 0.6) !important;
+  border-color: rgba(245, 158, 11, 0.25) !important;
+}
+
+[data-theme='light'] .rescue-track-card .text-orange-400 {
+  color: #C2410C !important;
+}
+
+[data-theme='light'] .rescue-track-card .text-orange-300 {
+  color: #9A3412 !important;
+}
+
+/* Code Snippet and Terminal in Light: Refined Dark Slate IDE */
+[data-theme='light'] .bg-\[\#080B10\],
+[data-theme='light'] pre {
+  background-color: #0F172A !important;
+  border-color: rgba(15, 23, 42, 0.15) !important;
+  color: #F8FAFC !important;
+}
+
+[data-theme='light'] .bg-\[\#080B10\] .text-slate-300,
+[data-theme='light'] pre .text-slate-300 {
+  color: #E2E8F0 !important;
+}
+
+[data-theme='light'] .bg-\[\#080B10\] .text-slate-400,
+[data-theme='light'] pre .text-slate-400 {
+  color: #94A3B8 !important;
+}
+
+
+/* ===================== 2. WARM DARK THEME (WARM CHARCOAL) ===================== */
+[data-theme='warm'] {
+  --color-obsidian-card: rgba(28, 23, 19, 0.88);
+  --color-obsidian-border: rgba(245, 235, 224, 0.09);
+}
+
+[data-theme='warm'] .heading-display,
+[data-theme='warm'] h1, 
+[data-theme='warm'] h2, 
+[data-theme='warm'] h3, 
+[data-theme='warm'] h4,
+[data-theme='warm'] h5,
+[data-theme='warm'] h6 {
+  color: #FAF5EE !important;
+}
+
+/* Ensure text-white adopts warm ivory in warm theme */
+[data-theme='warm'] .text-white:not(button[class*="bg-teal"]):not(span[class*="bg-teal"]) {
+  color: #FAF5EE !important;
+}
+
+[data-theme='warm'] .bg-\[\#0A0D12\],
+[data-theme='warm'] .bg-\[\#0A0D12\]\/90,
+[data-theme='warm'] .bg-\[\#0A0D12\]\/98,
+[data-theme='warm'] .bg-\[\#0E131F\],
+[data-theme='warm'] .bg-\[\#0A0D13\],
+[data-theme='warm'] .bg-\[\#0E121A\],
+[data-theme='warm'] .bg-\[\#0F131A\],
+[data-theme='warm'] .bg-\[\#090B0E\],
+[data-theme='warm'] .bg-\[\#10141D\],
+[data-theme='warm'] .bg-\[\#0D1117\] {
+  background-color: rgba(20, 18, 16, 0.95) !important;
+  border-color: rgba(245, 235, 224, 0.09) !important;
+}
+
+[data-theme='warm'] .surface-card {
+  background-color: rgba(28, 23, 19, 0.88) !important;
+  border-color: rgba(245, 235, 224, 0.09) !important;
+  box-shadow: inset 0 1px 0 0 rgba(245, 235, 224, 0.06), 0 4px 20px -2px rgba(0, 0, 0, 0.45) !important;
+  color: #EDE5DA !important;
+}
+
+[data-theme='warm'] .border-white\/5,
+[data-theme='warm'] .border-white\/10,
+[data-theme='warm'] .border-white\/15,
+[data-theme='warm'] .border-white\/20,
+[data-theme='warm'] .border-theme {
+  border-color: rgba(245, 235, 224, 0.09) !important;
+}
+
+[data-theme='warm'] .border-theme-medium {
+  border-color: rgba(245, 235, 224, 0.18) !important;
+}
+
+[data-theme='warm'] .divide-white\/5 > :not([hidden]) ~ :not([hidden]),
+[data-theme='warm'] .divide-white\/10 > :not([hidden]) ~ :not([hidden]) {
+  border-color: rgba(245, 235, 224, 0.09) !important;
+}
+
+[data-theme='warm'] .bg-white\/\[0\.015\],
+[data-theme='warm'] .bg-white\/\[0\.02\],
+[data-theme='warm'] .bg-white\/\[0\.025\],
+[data-theme='warm'] .bg-white\/\[0\.03\],
+[data-theme='warm'] .bg-white\/\[0\.04\],
+[data-theme='warm'] .bg-white\/\[0\.05\],
+[data-theme='warm'] .bg-white\/\[0\.06\],
+[data-theme='warm'] .bg-white\/\[0\.07\],
+[data-theme='warm'] .bg-white\/\[0\.08\],
+[data-theme='warm'] .bg-white\/5,
+[data-theme='warm'] .bg-white\/10 {
+  background-color: rgba(245, 235, 224, 0.04) !important;
+}
+
+/* Pure black boxes mapped to warm dark charcoal in Warm theme */
+[data-theme='warm'] .bg-black\/20,
+[data-theme='warm'] .bg-black\/30,
+[data-theme='warm'] .bg-black\/40,
+[data-theme='warm'] .bg-black\/50,
+[data-theme='warm'] .bg-black\/60,
+[data-theme='warm'] .bg-black\/70,
+[data-theme='warm'] .bg-black\/80 {
+  background-color: rgba(20, 16, 13, 0.72) !important;
+  border-color: rgba(245, 235, 224, 0.08) !important;
+}
+
+/* Modal and Dialog Backdrop & Surface in Warm */
+[data-theme='warm'] [role="dialog"] {
+  background-color: rgba(20, 18, 16, 0.88) !important;
+}
+
+[data-theme='warm'] [role="dialog"] > div {
+  background-color: #1C1713 !important;
+  border-color: rgba(245, 235, 224, 0.12) !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.65) !important;
+  color: #EDE5DA !important;
+}
+
+[data-theme='warm'] .input-theme,
+[data-theme='warm'] input:not([type="checkbox"]):not([type="radio"]),
+[data-theme='warm'] select,
+[data-theme='warm'] textarea {
+  background-color: rgba(20, 17, 14, 0.85) !important;
+  border-color: rgba(245, 235, 224, 0.12) !important;
+  color: #EDE5DA !important;
+}
+
+[data-theme='warm'] input::placeholder,
+[data-theme='warm'] textarea::placeholder {
+  color: #7D7264 !important;
+}
+
+[data-theme='warm'] .option-card-theme {
+  background-color: rgba(26, 21, 17, 0.85) !important;
+  border-color: rgba(245, 235, 224, 0.09) !important;
+}
+
+[data-theme='warm'] .text-slate-100,
+[data-theme='warm'] .text-slate-200,
+[data-theme='warm'] .text-slate-300 {
+  color: #EDE5DA !important;
+}
+
+[data-theme='warm'] .text-slate-400 {
+  color: #A89D8F !important;
+}
+
+[data-theme='warm'] .text-slate-500 {
+  color: #7D7264 !important;
+}
+
+[data-theme='warm'] .rescue-track-card {
+  background-color: rgba(30, 22, 17, 0.95) !important;
+  border-color: rgba(249, 115, 22, 0.25) !important;
+}
+
+/* Code Snippets in Warm */
+[data-theme='warm'] .bg-\[\#080B10\],
+[data-theme='warm'] pre {
+  background-color: #14100D !important;
+  border-color: rgba(245, 235, 224, 0.1) !important;
+  color: #FAF5EE !important;
+}
+
+
+/* ===================== 3. COOL SLATE THEME (COOL SLATE) ===================== */
+[data-theme='slate'] {
+  --color-obsidian-card: rgba(17, 28, 46, 0.88);
+  --color-obsidian-border: rgba(148, 163, 184, 0.12);
+}
+
+[data-theme='slate'] .heading-display,
+[data-theme='slate'] h1, 
+[data-theme='slate'] h2, 
+[data-theme='slate'] h3, 
+[data-theme='slate'] h4,
+[data-theme='slate'] h5,
+[data-theme='slate'] h6 {
+  color: #F8FAFC !important;
+}
+
+/* Ensure text-white adopts cool slate white in Slate theme */
+[data-theme='slate'] .text-white:not(button[class*="bg-teal"]):not(span[class*="bg-teal"]) {
+  color: #F8FAFC !important;
+}
+
+[data-theme='slate'] .bg-\[\#0A0D12\],
+[data-theme='slate'] .bg-\[\#0A0D12\]\/90,
+[data-theme='slate'] .bg-\[\#0A0D12\]\/98,
+[data-theme='slate'] .bg-\[\#0E131F\],
+[data-theme='slate'] .bg-\[\#0A0D13\],
+[data-theme='slate'] .bg-\[\#0E121A\],
+[data-theme='slate'] .bg-\[\#0F131A\],
+[data-theme='slate'] .bg-\[\#090B0E\],
+[data-theme='slate'] .bg-\[\#10141D\],
+[data-theme='slate'] .bg-\[\#0D1117\] {
+  background-color: rgba(11, 19, 32, 0.95) !important;
+  border-color: rgba(148, 163, 184, 0.12) !important;
+}
+
+[data-theme='slate'] .surface-card {
+  background-color: rgba(17, 28, 46, 0.88) !important;
+  border-color: rgba(148, 163, 184, 0.12) !important;
+  box-shadow: inset 0 1px 0 0 rgba(148, 163, 184, 0.08), 0 4px 20px -2px rgba(0, 0, 0, 0.45) !important;
+  color: #E2E8F0 !important;
+}
+
+[data-theme='slate'] .border-white\/5,
+[data-theme='slate'] .border-white\/10,
+[data-theme='slate'] .border-white\/15,
+[data-theme='slate'] .border-white\/20,
+[data-theme='slate'] .border-theme {
+  border-color: rgba(148, 163, 184, 0.12) !important;
+}
+
+[data-theme='slate'] .border-theme-medium {
+  border-color: rgba(148, 163, 184, 0.22) !important;
+}
+
+[data-theme='slate'] .divide-white\/5 > :not([hidden]) ~ :not([hidden]),
+[data-theme='slate'] .divide-white\/10 > :not([hidden]) ~ :not([hidden]) {
+  border-color: rgba(148, 163, 184, 0.12) !important;
+}
+
+[data-theme='slate'] .bg-white\/\[0\.015\],
+[data-theme='slate'] .bg-white\/\[0\.02\],
+[data-theme='slate'] .bg-white\/\[0\.025\],
+[data-theme='slate'] .bg-white\/\[0\.03\],
+[data-theme='slate'] .bg-white\/\[0\.04\],
+[data-theme='slate'] .bg-white\/\[0\.05\],
+[data-theme='slate'] .bg-white\/\[0\.06\],
+[data-theme='slate'] .bg-white\/\[0\.07\],
+[data-theme='slate'] .bg-white\/\[0\.08\],
+[data-theme='slate'] .bg-white\/5,
+[data-theme='slate'] .bg-white\/10 {
+  background-color: rgba(148, 163, 184, 0.05) !important;
+}
+
+/* Pure black boxes mapped to deep navy sapphire in Slate theme */
+[data-theme='slate'] .bg-black\/20,
+[data-theme='slate'] .bg-black\/30,
+[data-theme='slate'] .bg-black\/40,
+[data-theme='slate'] .bg-black\/50,
+[data-theme='slate'] .bg-black\/60,
+[data-theme='slate'] .bg-black\/70,
+[data-theme='slate'] .bg-black\/80 {
+  background-color: rgba(11, 19, 32, 0.72) !important;
+  border-color: rgba(148, 163, 184, 0.12) !important;
+}
+
+/* Modal and Dialog Backdrop & Surface in Slate */
+[data-theme='slate'] [role="dialog"] {
+  background-color: rgba(11, 19, 32, 0.88) !important;
+}
+
+[data-theme='slate'] [role="dialog"] > div {
+  background-color: #121F33 !important;
+  border-color: rgba(148, 163, 184, 0.16) !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.65) !important;
+  color: #E2E8F0 !important;
+}
+
+[data-theme='slate'] .input-theme,
+[data-theme='slate'] input:not([type="checkbox"]):not([type="radio"]),
+[data-theme='slate'] select,
+[data-theme='slate'] textarea {
+  background-color: rgba(11, 19, 32, 0.8) !important;
+  border-color: rgba(148, 163, 184, 0.16) !important;
+  color: #E2E8F0 !important;
+}
+
+[data-theme='slate'] input::placeholder,
+[data-theme='slate'] textarea::placeholder {
+  color: #64748B !important;
+}
+
+[data-theme='slate'] .option-card-theme {
+  background-color: rgba(16, 27, 44, 0.85) !important;
+  border-color: rgba(148, 163, 184, 0.12) !important;
+}
+
+[data-theme='slate'] .text-slate-100,
+[data-theme='slate'] .text-slate-200,
+[data-theme='slate'] .text-slate-300 {
+  color: #E2E8F0 !important;
+}
+
+[data-theme='slate'] .text-slate-400 {
+  color: #94A3B8 !important;
+}
+
+[data-theme='slate'] .text-slate-500 {
+  color: #64748B !important;
+}
+
+[data-theme='slate'] .rescue-track-card {
+  background-color: rgba(22, 28, 42, 0.95) !important;
+  border-color: rgba(249, 115, 22, 0.25) !important;
+}
+
+/* Code Snippets in Slate */
+[data-theme='slate'] .bg-\[\#080B10\],
+[data-theme='slate'] pre {
+  background-color: #0A111C !important;
+  border-color: rgba(148, 163, 184, 0.12) !important;
+  color: #F8FAFC !important;
+}
